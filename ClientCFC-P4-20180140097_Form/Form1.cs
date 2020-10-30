@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.ServiceModel;
 using ServiceMtk_P1_097;
 
 namespace ClientCFC_P4_20180140097_Form
 {
-    class Program
+    public partial class Form1 : Form
     {
-        static void Main(string[] args)
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
             BasicHttpBinding bind = new BasicHttpBinding();
             ChannelFactory<IMatematika> objChannel = new
@@ -26,6 +35,16 @@ namespace ClientCFC_P4_20180140097_Form
             Console.WriteLine("2 / 2 = " + hasilBagi);
             Console.ReadLine();
             Koordinat objk = new Koordinat();
+
+            textBox1.Text = "1 + 2 =" + hasilTambah;
+            textBox2.Text = "3 - 2 =" + hasilKurang;
+            textBox3.Text = "2 x 2 =" + hasilKali;
+            textBox4.Text = "2 / 2 =" + hasilBagi;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
